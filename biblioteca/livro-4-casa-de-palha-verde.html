@@ -1,212 +1,397 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Casa de Palha Verde — Livro IV | Maguezi</title>
-  <meta name="description" content="Livro IV das Crónicas da Cidade de Luz. Ler online e apoiar a edição impressa." />
-  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital@0;1&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-  <link rel="stylesheet" href="../css/livro.css" />
-  <link rel="stylesheet" href="../css/audio.css" />
-  <script defer src="../js/audio.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Casa de Palha Verde — Livro IV | Maguezi</title>
+    <meta
+      name="description"
+      content="Livro IV das Crónicas da Cidade de Luz. Ler online e apoiar a edição impressa."
+    />
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital@0;1&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/livro.css" />
+    <link rel="stylesheet" href="../css/audio.css" />
+    <script defer src="../js/audio.js"></script>
     <!-- MAGUEZI-SEO-INICIO -->
-  <meta property="og:title" content="A Casa de Palha Verde — Livro IV | Maguezi" />
-  <meta property="og:description" content="Livro IV das Crónicas da Cidade de Luz. Ler online e apoiar a edição impressa." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://xambinha.github.io/maguezi/biblioteca/livro-4-casa-de-palha-verde.html" />
-  <meta property="og:image" content="https://xambinha.github.io/maguezi/img/capa-social.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- MAGUEZI-SEO-FIM -->
-</head>
-<body class="pagina-interna">
+    <meta
+      property="og:title"
+      content="A Casa de Palha Verde — Livro IV | Maguezi"
+    />
+    <meta
+      property="og:description"
+      content="Livro IV das Crónicas da Cidade de Luz. Ler online e apoiar a edição impressa."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://xambinha.github.io/maguezi/biblioteca/livro-4-casa-de-palha-verde.html"
+    />
+    <meta
+      property="og:image"
+      content="https://xambinha.github.io/maguezi/img/capa-social.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- MAGUEZI-SEO-FIM -->
+  </head>
 
-  <header class="cabecalho cabecalho--solido">
-    <div class="conteudo">
-      <a class="marca" href="../index.html">✦ Maguezi</a>
-      <input type="checkbox" id="menu-abrir" class="menu-burger" />
-      <label for="menu-abrir" class="menu-rotulo" aria-label="Abrir o menu">☰</label>
-      <nav aria-label="Navegação principal">
-        <ul class="menu">
-          <li><a href="../universo/index.html">O Universo</a></li>
-          <li><a href="index.html">Biblioteca</a></li>
-          <li><a href="../saberes/index.html">Saberes</a></li>
-          <li><a href="../edicao/index.html"> A Caminho do Papel</a></li>
-          <li><a href="../entrar.html">🔑 A Chave</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section class="livro-hero">
-    <div class="nyeleti" aria-hidden="true"></div>
-    <div class="conteudo">
-      <p class="livro-numero">Livro IV · Volume 1</p>
-      <h1>A Casa de Palha Verde</h1>
-      <p class="livro-hero__linha">Não é a casa que é extraordinária — mas quem a habita.</p>
-      <div class="livro-acoes">
-        <a class="botao" href="livro-4-casa-de-palha-verde-ler.html">📖 Ler a Crónica</a>
-        <a class="botao botao--fantasma" href="#ouvir">🎧 Ouvir <small>(em breve)</small></a>
-      </div>
-      <p class="livro-meta">≈ 25 minutos de leitura</p>
-    </div>
-  </section>
-
-  <section class="seccao livro-seccao" id="sinopse">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>✨</span> Sinopse</h2>
-      <div class="sinopse">
-        <p>Nas terras abençoadas de Inhambane vivia um régulo, outrora um guerreiro temido e respeitado, cuja bravura atravessara fronteiras. Agora, dedicado à família, governava com a mesma firmeza com que antes brandira a lança. Tinha três filhos, e ensinara-lhes a buscar sempre o elevado.</p><p>Na grande festa que organizou, tribos, mercadores e guerreiros acorreram de toda a parte. Nobres e herdeiros desfilaram as suas virtudes diante das donzelas. Mas, como dizem os mais velhos, ninguém conhece os trilhos do coração.</p><p>Anos depois, numa tempestade, a filha mais nova descobre uma casa de palha verde — toda verde, sem uma palha seca — onde os pássaros pousam sem medo. E descobre, nela, um servo cuja serenidade esconde uma grandeza que os olhos comuns não conseguem ver.</p><p>Uma porta para um mundo escondido — e para a memória de Maguezi, que continua viva em quem sabe escutar.</p>
-        <p class="sinopse-temas">Uma história sobre <strong>humildade</strong>, <strong>simplicidade</strong> e <strong>memória escondida</strong>.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccao seccao--palha livro-seccao" id="camadas">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>🔥</span> As Camadas</h2>
-      <p class="livro-seccao-intro">
-        Cada crónica de Maguezi funciona em três níveis, ao mesmo tempo.
-        Escolhe a tua porta — ou atravessa as três.
-      </p>
-      <details class="camada" open>
-        <summary><strong>📖 A História</strong><em>para simplesmente desfrutar</em></summary>
-        <div class="camada-corpo">
-          <p>
-            Uma jovem que ouve o que os outros não ouvem. Uma casa que nunca
-            seca. Um servo que não é o que muitos veem — e que restaura, diante
-            da corte, a genealogia perdida de um povo. Uma febre que nenhum
-            médico sabe curar. E uma partida por uma porta que, depois,
-            desapareceu. Lê esta crónica como uma história de amor e de
-            memória.
-          </p>
-        </div>
-      </details>
-      <details class="camada">
-        <summary><strong>🌿 O Símbolo</strong><em>para quem quer ver mais fundo</em></summary>
-        <div class="camada-corpo">
-          <p>
-            Repara na casa: mantém-se verde porque é sempre renovada — como a
-            cultura que alguém cuida todos os dias, quando o mundo já a dá por
-            perdida. Repara nos casamentos de Maguezi: o que une dois corações
-            é a afinidade com a luz, não a riqueza. Repara na doença da jovem —
-            “febre de impossibilidade”: o desejo que não cabe na vida antiga.
-            E no servo: uma semente dispersa, partida à procura de outras
-            sementes. O que desaparece no fim não se perde — muda de mundo.
-          </p>
-        </div>
-      </details>
-      <details class="camada">
-        <summary><strong><svg class="simbolo-svg" aria-hidden="true"><use href="../img/simbolos.svg#nyeleti"></use></svg> A Sabedoria</strong><em>para quem quiser aprofundar</em></summary>
-        <div class="camada-corpo">
-          <p>Perguntas para levar contigo, à volta da fogueira:</p>
-          <ul class="perguntas">
-            <li>Que cuidado diário manteria verde a casa da tua vida?</li>
-            <li>De que legado és tu semente dispersa — e ainda não sabias?</li>
-            <li>Que febre de impossibilidade arde em ti?</li>
+  <body class="pagina-interna">
+    <header class="cabecalho cabecalho--solido">
+      <div class="conteudo">
+        <a class="marca" href="../index.html">✦ Maguezi</a>
+        <input type="checkbox" id="menu-abrir" class="menu-burger" />
+        <label for="menu-abrir" class="menu-rotulo" aria-label="Abrir o menu"
+          >☰</label
+        >
+        <nav aria-label="Navegação principal">
+          <ul class="menu">
+            <li><a href="../universo/index.html">O Universo</a></li>
+            <li><a href="index.html">Biblioteca</a></li>
+            <li><a href="../saberes/index.html">Saberes</a></li>
+            <li><a href="../edicao/index.html"> A Caminho do Papel</a></li>
+            <li><a href="../entrar.html">🔑 A Chave</a></li>
           </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="livro-hero">
+      <div class="nyeleti" aria-hidden="true"></div>
+      <div class="conteudo">
+        <p class="livro-numero">Livro IV · Volume 1</p>
+        <h1>A Casa de Palha Verde</h1>
+        <p class="livro-hero__linha">
+          Não é a casa que é extraordinária — mas quem a habita.
+        </p>
+        <div class="livro-acoes">
+          <a class="botao" href="livro-4-casa-de-palha-verde-ler.html"
+            >📖 Ler a Crónica</a
+          >
+          <a class="botao botao--fantasma" href="#ouvir"
+            >🎧 Ouvir <small>(em breve)</small></a
+          >
+        </div>
+        <p class="livro-meta">≈ 25 minutos de leitura</p>
+      </div>
+    </section>
+
+    <section class="seccao livro-seccao" id="sinopse">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>✨</span> Sinopse</h2>
+        <div class="sinopse">
           <p>
-            Os mais velhos respondem apenas: <em>Maguezi não está longe. Quem
-            age com coração puro começa a ouvir os chamados da terra.</em>
+            Nas terras abençoadas de Inhambane vivia um régulo, outrora um
+            guerreiro temido e respeitado, cuja bravura atravessara fronteiras.
+            Agora, dedicado à família, governava com a mesma firmeza com que
+            antes brandira a lança. Tinha três filhos, e ensinara-lhes a buscar
+            sempre o elevado.
+          </p>
+          <p>
+            Na grande festa que organizou, tribos, mercadores e guerreiros
+            acorreram de toda a parte. Nobres e herdeiros desfilaram as suas
+            virtudes diante das donzelas. Mas, como dizem os mais velhos,
+            ninguém conhece os trilhos do coração.
+          </p>
+          <p>
+            Anos depois, numa tempestade, a filha mais nova descobre uma casa de
+            palha verde — toda verde, sem uma palha seca — onde os pássaros
+            pousam sem medo. E descobre, nela, um servo cuja serenidade esconde
+            uma grandeza que os olhos comuns não conseguem ver.
+          </p>
+          <p>
+            O que começa como uma escolha difícil transforma-se numa jornada de
+            memória, identidade e descoberta. E, por detrás daquela casa,
+            permanece uma antiga luz — uma luz que só se revela quando o coração
+            aprende a ver para além das aparências.
+          </p>
+          <p class="sinopse-temas">
+            Uma história sobre
+            <strong>humildade</strong>, <strong>simplicidade</strong>,
+            <strong>integridade</strong> e <strong>memória ancestral</strong>.
           </p>
         </div>
-      </details>
-    </div>
-  </section>
-
-  <section class="seccao livro-seccao" id="personagens">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>🌿</span> Personagens</h2>
-      <div class="fichas"><article class="ficha"><span class="ficha-simbolo">🌾</span><h3>A Donzela</h3><p>A filha do régulo que ouvia o canto da Mãe-Terra.</p></article><article class="ficha"><span class="ficha-simbolo">🏡</span><h3>O Jovem Servo</h3><p>O guardião da casa de palha verde. Não é o que muitos veem.</p></article><article class="ficha"><span class="ficha-simbolo">👑</span><h3>O Régulo de Inhambane</h3><p>O pai atento, que sabia distinguir o capricho passageiro da verdade profunda.</p></article><article class="ficha"><span class="ficha-simbolo">👦</span><h3>O Irmão Mais Novo</h3><p>O que duvidou — até ver.</p></article></div>
-    </div>
-  </section>
-
-  <section class="seccao seccao--palha livro-seccao" id="lugares">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>🗺️</span> Lugares de Maguezi</h2>
-      <div class="fichas"><a class="ficha" href="../universo/index.html"><span class="ficha-simbolo">🌿</span><h3>A Casa de Palha Verde</h3><p>Renovada todos os dias: nenhuma palha seca, nenhum sinal da tempestade.</p></a><a class="ficha" href="../universo/index.html"><span class="ficha-simbolo">🌊</span><h3>As Terras de Inhambane</h3><p>Onde a história começa — e onde a memória de Maguezi se esconde.</p></a></div>
-    </div>
-  </section>
-
-  <section class="seccao livro-seccao" id="ouvir">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>🎧</span> Ouvir a Crónica</h2>
-      <div class="player-placeholder">
-        <span class="simbolo">🎙️</span>
-        <p><strong>As gravações estão a nascer.</strong></p>
-        <p>Em breve, cada crónica poderá ser ouvida — narrada, à maneira antiga, como se conta junto à fogueira.</p>
-        <p>Queres ser dos primeiros a ouvir? <a href="mailto:associacaomaguezi@gmail.com">associacaomaguezi@gmail.com</a></p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="seccao seccao--palha livro-seccao" id="nota">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>📜</span> Nota dos Autores</h2>
-      <div class="nota-autores">
-        <p>
-          Esta é a crónica mais longa do Volume 1 — e talvez a mais íntima.
-          Nasceu em Inhambane, do trabalho de campo da Associação: de casas
-          antigas, de genealogias que os mais velhos recitam de memória, e de
-          uma pergunta que nunca nos largou — para onde vão os que aprendem
-          a ver? A casa de palha verde é a nossa maneira de dizer que a
-          memória não se guarda em museus: guarda-se em quem cuida.
+    <section class="seccao seccao--palha livro-seccao" id="camadas">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>🔥</span> As Camadas</h2>
+        <p class="livro-seccao-intro">
+          Cada crónica de Maguezi funciona em três níveis, ao mesmo tempo.
+          Escolhe a tua porta — ou atravessa as três.
         </p>
-        <p class="assinatura">— Osvaldo Chamba &amp; Dória Macie · Maputo</p>
+        <details class="camada" open>
+          <summary>
+            <strong>📖 A História</strong><em>para simplesmente desfrutar</em>
+          </summary>
+          <div class="camada-corpo">
+            <p>
+              Uma jovem que escuta aquilo que os outros não percebem. Uma casa
+              que permanece verde mesmo depois da tempestade. Um jovem servo
+              cuja verdadeira riqueza não está naquilo que possui. Um pai
+              dividido entre as convenções do seu mundo e a felicidade da filha.
+              E uma febre que parece nascer de um desejo que nenhuma riqueza
+              consegue satisfazer.
+            </p>
+
+            <p>
+              Lê esta crónica primeiro como uma história de encontros, escolhas
+              e caminhos que se abrem quando alguém decide escutar o coração.
+            </p>
+          </div>
+        </details>
+        <details class="camada">
+          <summary>
+            <strong>🌿 O Símbolo</strong><em>para quem quer ver mais fundo</em>
+          </summary>
+          <div class="camada-corpo">
+            <p>
+              Repara na casa: permanece verde porque alguém continua a cuidar
+              dela. Talvez seja esse o seu primeiro segredo. Aquilo que
+              permanece vivo precisa de cuidado.
+            </p>
+
+            <p>
+              Repara também nas escolhas das personagens. Os casamentos não são
+              apenas encontros entre famílias: revelam aquilo que cada coração
+              reconhece como valor. A riqueza, o nome e a posição podem abrir
+              portas, mas não conseguem revelar a verdadeira grandeza de uma
+              pessoa.
+            </p>
+
+            <p>
+              E repara na febre da jovem. Talvez não seja apenas doença. Talvez
+              seja o corpo tentando dizer aquilo que o coração ainda não
+              consegue explicar.
+            </p>
+
+            <p>
+              Quanto ao jovem servo, a sua aparente simplicidade guarda uma
+              pergunta:
+              <em
+                >quantas vezes confundimos a condição de alguém com aquilo que
+                essa pessoa realmente é?</em
+              >
+            </p>
+          </div>
+        </details>
+        <details class="camada">
+          <summary>
+            <strong
+              ><svg class="simbolo-svg" aria-hidden="true">
+                <use href="../img/simbolos.svg#nyeleti"></use>
+              </svg>
+              A Sabedoria</strong
+            ><em>para quem quiser aprofundar</em>
+          </summary>
+          <div class="camada-corpo">
+            <p>Perguntas para levar contigo, à volta da fogueira:</p>
+            <ul class="perguntas">
+              <li>Que cuidado diário manteria verde a casa da tua vida?</li>
+              <li>
+                O que reconheces como riqueza quando ninguém está a olhar?
+              </li>
+              <li>
+                Já alguma vez julgaste alguém pela aparência antes de conhecer a
+                sua história?
+              </li>
+              <li>
+                Que desejo profundo ainda não encontraste palavras para
+                explicar?
+              </li>
+            </ul>
+            <p>
+              Os mais velhos não dão respostas apressadas. Apenas dizem:
+              <em>
+                “Há casas que só aparecem quando o coração aprende a ver.”
+              </em>
+            </p>
+          </div>
+        </details>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="seccao seccao--noite livro-seccao" id="edicao">
-    <div class="conteudo" style="text-align:center">
-      <h2 class="livro-seccao-titulo" style="justify-content:center"><span>🖨️</span> Estado da Edição Impressa</h2>
-      <span class="estado-selo">A caminho do papel</span>
-      <div class="estado-texto">
-        <p>Esta crónica existe em versão digital — para ler e, em breve, para ouvir. A edição impressa do Volume 1 aguarda a sua campanha.</p>
-        <p>Se queres segurar este livro nas mãos — e oferecê-lo — <a href="../edicao/index.html">vê como apoiar a edição →</a></p>
+    <section class="seccao livro-seccao" id="personagens">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>🌿</span> Personagens</h2>
+        <div class="fichas">
+          <article class="ficha">
+            <span class="ficha-simbolo">🌾</span>
+            <h3>A Filha Mais Nova</h3>
+            <p>
+              A jovem que não procura apenas um casamento, mas aquilo que o
+              coração reconhece como verdadeiro. A sua curiosidade conduz-lhe os
+              passos para além das aparências.
+            </p>
+          </article>
+
+          <article class="ficha">
+            <span class="ficha-simbolo">🏡</span>
+            <h3>O Jovem Servo</h3>
+            <p>
+              Humilde aos olhos do mundo, guarda uma grandeza que não depende de
+              nome, riqueza ou posição. A sua presença recorda uma herança que
+              quase foi esquecida.
+            </p>
+          </article>
+
+          <article class="ficha">
+            <span class="ficha-simbolo">👑</span>
+            <h3>O Régulo de Inhambane</h3>
+            <p>
+              Um pai e antigo guerreiro que aprende a colocar o amor e a verdade
+              acima das convenções. A sua bênção torna-se também uma forma de
+              sabedoria.
+            </p>
+          </article>
+
+          <article class="ficha">
+            <span class="ficha-simbolo">👦</span>
+            <h3>O Irmão Mais Novo</h3>
+            <p>
+              Primeiro questiona aquilo que não compreende. Depois entra na
+              casa, vê por si mesmo e torna-se testemunha de que nem tudo o que
+              é verdadeiro pode ser reconhecido à primeira vista.
+            </p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="seccao seccao--palha livro-seccao">
-    <div class="conteudo">
-      <h2 class="livro-seccao-titulo"><span>🍂</span> A Folha que Caiu</h2>
-      <div class="folha-semana">
-        <blockquote>“Os caminhos de Maguezi jamais se fecham para aqueles que aprendem a ver com o coração.”</blockquote>
-        <cite>A despedida da crónica · Livro IV</cite>
+    <section class="seccao seccao--palha livro-seccao" id="lugares">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>🗺️</span> Lugares de Maguezi</h2>
+        <div class="fichas">
+          <a class="ficha" href="../universo/index.html">
+            <span class="ficha-simbolo">🌿</span>
+            <h3>A Casa de Palha Verde</h3>
+            <p>
+              Uma casa que a tempestade não consegue destruir. Permanece viva,
+              renovada e silenciosa — como aquilo que continua puro quando o mundo
+              à sua volta muda.
+            </p>
+          </a>
+          <a class="ficha" href="../universo/index.html">
+            <span class="ficha-simbolo">🌊</span>
+            <h3>As Terras de Inhambane</h3>
+            <p>
+              Terra de memória, família e tradição. É aqui que a história começa,
+              entre os ensinamentos de um antigo régulo e os caminhos que conduzem
+              àquilo que permanece escondido.
+            </p>
+          </a>
+        </div>
       </div>
-      
-      <p style="text-align:center; margin-top:2rem">
-        <a class="botao botao--escuro" target="_blank" rel="noopener"
-           href="https://www.facebook.com/sharer/sharer.php?u=https://xambinha.github.io/maguezi/biblioteca/livro-4-casa-de-palha-verde.html">
-          Partilhar esta folha no Facebook
-        </a>
-      </p>
+    </section>
 
-      <nav class="nav-livros" aria-label="Navegação entre livros">
-        <a href="livro-3-yehlisa.html">← Livro III — Yehlisa e a Mbira Mágica</a>
-        <a href="livro-5-tsembissa.html">Livro V — O Conto de Tsembissa →</a>
-      </nav>
-    </div>
-  </section>
-
-  <footer class="rodape">
-    <div class="conteudo">
-      <span class="marca">✦ Maguezi</span>
-      <p>Crónicas da Cidade de Luz · Osvaldo Chamba &amp; Dória Macie</p>
-      <p>Associação Maguezi — Maputo, Moçambique</p>
-      <div class="redes">
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
-        <a href="mailto:associacaomaguezi@gmail.com">E-mail</a>
+    <section class="seccao livro-seccao" id="ouvir">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>🎧</span> Ouvir a Crónica</h2>
+        <div class="player-placeholder">
+          <span class="simbolo">🎙️</span>
+          <p><strong>As gravações estão a nascer.</strong></p>
+          <p>
+            Em breve, cada crónica poderá ser ouvida — narrada, à maneira
+            antiga, como se conta junto à fogueira.
+          </p>
+          <p>
+            Queres ser dos primeiros a ouvir?
+            <a href="mailto:associacaomaguezi@gmail.com"
+              >associacaomaguezi@gmail.com</a
+            >
+          </p>
+        </div>
       </div>
-      <p class="rodape-frase">“Tudo está vivo. Tudo fala. É preciso apenas aprender a escutar.”</p>
-    </div>
-  </footer>
+    </section>
 
-  <script defer src="../js/chave-viva.js"></script>
-</body>
+    <section class="seccao seccao--palha livro-seccao" id="nota">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>📜</span> Nota dos Autores</h2>
+        <div class="nota-autores">
+          <p>
+            Esta é a crónica mais longa do Volume 1 — e talvez a mais íntima.
+            “A Casa de Palha Verde” nasceu da intuição de que o sagrado e o verdadeiro 
+            resistem, pacientes e inabaláveis, ao teste do secularismo. Permanecem ao 
+            alcance de quem ousa enxergá-los — e habitam naqueles que cuidam, escutam 
+            e preservam a centelha dos valores essenciais.
+          </p>
+          <p class="assinatura">— Chamba &amp; Macie · Maputo</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccao seccao--noite livro-seccao" id="edicao">
+      <div class="conteudo" style="text-align: center">
+        <h2 class="livro-seccao-titulo" style="justify-content: center">
+          <span>🖨️</span> Estado da Edição Impressa
+        </h2>
+        <span class="estado-selo">A caminho do papel</span>
+        <div class="estado-texto">
+          <p>
+            Esta crónica existe em versão digital — para ler e, em breve, para
+            ouvir. A edição impressa do Volume 1 aguarda a sua campanha.
+          </p>
+          <p>
+            Se queres segurar este livro nas mãos — e oferecê-lo —
+            <a href="../edicao/index.html">vê como apoiar a edição →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccao seccao--palha livro-seccao">
+      <div class="conteudo">
+        <h2 class="livro-seccao-titulo"><span>🍂</span> A Folha que Caiu</h2>
+        <div class="folha-semana">
+          <blockquote>
+            “Os caminhos de Maguezi jamais se fecham para aqueles que aprendem a
+            ver com o coração.”
+          </blockquote>
+          <cite>A despedida da crónica · Livro IV</cite>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem">
+          <a
+            class="botao botao--escuro"
+            target="_blank"
+            rel="noopener"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://xambinha.github.io/maguezi/biblioteca/livro-4-casa-de-palha-verde.html"
+          >
+            Partilhar esta folha no Facebook
+          </a>
+        </p>
+
+        <nav class="nav-livros" aria-label="Navegação entre livros">
+          <a href="livro-3-yehlisa.html"
+            >← Livro III — Yehlisa e a Mbira Mágica</a
+          >
+          <a href="livro-5-tsembissa.html">Livro V — O Conto de Tsembissa →</a>
+        </nav>
+      </div>
+    </section>
+
+    <footer class="rodape">
+      <div class="conteudo">
+        <span class="marca">✦ Maguezi</span>
+        <p>Crónicas da Cidade de Luz · Osvaldo Chamba &amp; Dória Macie</p>
+        <p>Associação Maguezi — Maputo, Moçambique</p>
+        <div class="redes">
+          <a href="#">Facebook</a>
+          <a href="#">YouTube</a>
+          <a href="mailto:associacaomaguezi@gmail.com">E-mail</a>
+        </div>
+        <p class="rodape-frase">
+          “Tudo está vivo. Tudo fala. É preciso apenas aprender a escutar.”
+        </p>
+      </div>
+    </footer>
+
+    <script defer src="../js/chave-viva.js"></script>
+  </body>
 </html>
