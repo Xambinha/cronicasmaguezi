@@ -11,7 +11,7 @@
 #  e corre de novo - tudo se regenera.
 # ============================================================
 
- $Dominio = "https://xambinha.github.io/cronicasmaguezi"
+ $Dominio = "https://cronicasdamaguezi.co.mz"
 
  $utf8 = New-Object System.Text.UTF8Encoding($false)
  $marcaIni = '<!-- MAGUEZI-SEO-INICIO -->'
