@@ -80,18 +80,24 @@
 
         <div class="chave-aviso" id="aviso" role="alert"></div>
 
+        <!-- Avisos serenos (carta enviada, confirmação pedida) -->
+        <div id="aviso-info" role="status" style="display:none; margin:0 0 1rem; padding:0.85rem 1.05rem; border:1px solid rgba(217,149,48,0.45); background:rgba(217,149,48,0.09); border-radius:10px; font-size:0.92rem; line-height:1.5; color:#7d5b1e;"></div>
+
         <!-- ENTRAR -->
         <form id="form-entrar" novalidate>
           <div class="chave-campo">
             <label for="entrar-email">Email</label>
             <input type="email" id="entrar-email" autocomplete="email" required />
           </div>
-          <div class="chave-campo">
+          <div class="chave-campo" id="campo-entrar-senha">
             <label for="entrar-senha">Senha</label>
             <input type="password" id="entrar-senha" autocomplete="current-password" required />
           </div>
           <p style="text-align:center; margin-top:1.4rem">
-            <button type="submit" class="botao" style="margin-top:0">Abrir a porta</button>
+            <button type="submit" class="botao" id="botao-entrar" style="margin-top:0">Abrir a porta</button>
+          </p>
+          <p style="text-align:center; margin:1rem 0 0; font-size:0.88rem;">
+            <a href="#" id="perdi-chave" style="color:var(--palha-verde); text-decoration:underline;">Perdi a minha chave</a>
           </p>
         </form>
 
@@ -114,6 +120,29 @@
           </p>
         </form>
 
+      </div>
+
+      <!-- NOVA CHAVE: quem voltou da carta de recuperação -->
+      <div class="chave-caixa" id="painel-nova-senha" style="display:none">
+        <p class="saudacao">A carta chegou. Forja a tua chave nova.</p>
+        <p style="font-size:0.92rem; color:rgba(43,33,24,0.7); margin:0.4rem 0 1.2rem;">
+          Escreve a senha nova duas vezes, para ela sair certeira.
+          A antiga deixa de abrir qualquer porta da cidade.
+        </p>
+        <div class="chave-aviso" id="aviso-nova" role="alert"></div>
+        <form id="form-nova-senha" novalidate>
+          <div class="chave-campo">
+            <label for="nova-senha">Nova senha (mínimo 6 caracteres)</label>
+            <input type="password" id="nova-senha" autocomplete="new-password" minlength="6" required />
+          </div>
+          <div class="chave-campo">
+            <label for="nova-senha-confirma">Repete a nova senha</label>
+            <input type="password" id="nova-senha-confirma" autocomplete="new-password" minlength="6" required />
+          </div>
+          <p style="text-align:center; margin-top:1.4rem">
+            <button type="submit" class="botao" id="botao-nova-senha" style="margin-top:0">Forjar a chave nova</button>
+          </p>
+        </form>
       </div>
 
       <!-- Logado -->
@@ -159,21 +188,37 @@
 
     var cliente = configurado ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
 
-    var config = document.getElementById("estado-config");
-    var forms  = document.getElementById("painel-forms");
-    var logado = document.getElementById("painel-logado");
-    var aviso  = document.getElementById("aviso");
+    var config    = document.getElementById("estado-config");
+    var forms     = document.getElementById("painel-forms");
+    var logado    = document.getElementById("painel-logado");
+    var aviso     = document.getElementById("aviso");
+    var info      = document.getElementById("aviso-info");
+    var novaSenha = document.getElementById("painel-nova-senha");
+    var avisoNova = document.getElementById("aviso-nova");
+
+    /* Rasto deixado pela carta (link de confirmação ou recuperação).
+       Guardámo-lo já agora: o Supabase limpa o endereço pouco depois de chegar. */
+    var veioDeCarta =
+      window.location.search.indexOf("code=") > -1 ||
+      window.location.hash.indexOf("access_token") > -1 ||
+      window.location.hash.indexOf("type=recovery") > -1;
+
+    var emRecuperacao  = false; /* a cidade está a mostrar o formulario de nova senha */
+    var modoRecuperacao = false; /* o leitor pediu a carta, no formulario de entrada */
 
     /* ---------- estados ---------- */
     function mostrarConfig() {
       config.style.display = "block";
       forms.style.display = "none";
       logado.style.display = "none";
+      novaSenha.style.display = "none";
     }
     function mostrarForms() {
       config.style.display = "none";
       forms.style.display = "block";
       logado.style.display = "none";
+      novaSenha.style.display = "none";
+      emRecuperacao = false;
     }
     function mostrarLogado(nome) {
       /* grava o nome para o menu de TODAS as paginas o usar (chave-viva.js) */
@@ -181,8 +226,19 @@
       config.style.display = "none";
       forms.style.display = "none";
       logado.style.display = "block";
+      novaSenha.style.display = "none";
+      emRecuperacao = false;
       document.getElementById("saudacao").textContent =
         "A cidade reconheceu-te, " + nome + ".";
+    }
+    function mostrarNovaSenha() {
+      emRecuperacao = true;
+      config.style.display = "none";
+      forms.style.display = "none";
+      logado.style.display = "none";
+      novaSenha.style.display = "block";
+      limparErroNova();
+      try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (e) {}
     }
 
     function erro(mensagem) {
@@ -194,6 +250,24 @@
       aviso.classList.remove("visivel");
     }
 
+    function informar(mensagem) {
+      info.textContent = mensagem;
+      info.style.display = "block";
+    }
+    function limparInfo() {
+      info.textContent = "";
+      info.style.display = "none";
+    }
+
+    function erroNova(mensagem) {
+      avisoNova.textContent = mensagem;
+      avisoNova.classList.add("visivel");
+    }
+    function limparErroNova() {
+      avisoNova.textContent = "";
+      avisoNova.classList.remove("visivel");
+    }
+
     function traduzirErro(e) {
       var m = (e && e.message) || "";
       if (m.indexOf("Invalid login credentials") > -1)
@@ -202,6 +276,12 @@
         return "Este email já tem chave. Tenta entrar.";
       if (m.indexOf("at least 6 characters") > -1)
         return "A senha precisa de pelo menos 6 caracteres.";
+      if (m.indexOf("different from the old") > -1)
+        return "A senha nova tem de ser diferente da antiga.";
+      if (m.indexOf("Email not confirmed") > -1)
+        return "O teu email ainda não foi confirmado. Procura a carta de confirmação — às vezes repousa no spam.";
+      if (m.indexOf("redirect") > -1 || m.indexOf("not allowed") > -1)
+        return "A porta de retorno ainda não foi registada no Supabase (Authentication → URL Configuration). Avisa os guardiões.";
       if (m.indexOf("rate limit") > -1 || m.indexOf("too many") > -1)
         return "Demasiadas tentativas. A cidade guarda as portas — espera um pouco.";
       if (m.indexOf("Failed to fetch") > -1)
@@ -214,16 +294,33 @@
       if (!cliente) { mostrarConfig(); return; }
       cliente.auth.getSession().then(function (res) {
         var sessao = res && res.data && res.data.session;
-        if (sessao) {
-          var nome = (sessao.user.user_metadata && sessao.user.user_metadata.nome) || "leitor";
-          mostrarLogado(nome);
-        } else {
-          mostrarForms();
+        if (!sessao) { mostrarForms(); return; }
+
+        /* Chegou por carta? Se for recuperação, o evento PASSWORD_RECOVERY
+           chega num instante e mostra o formulário de nova senha.
+           Se for confirmação de email, abrimos a porta logo a seguir. */
+        if (veioDeCarta && !emRecuperacao) {
+          setTimeout(function () {
+            if (!emRecuperacao) {
+              var nomeC = (sessao.user.user_metadata && sessao.user.user_metadata.nome) || "leitor";
+              mostrarLogado(nomeC);
+            }
+          }, 900);
+          return;
         }
+
+        if (emRecuperacao) return;
+
+        var nome = (sessao.user.user_metadata && sessao.user.user_metadata.nome) || "leitor";
+        mostrarLogado(nome);
       });
     }
 
     cliente && cliente.auth.onAuthStateChange(function (evento) {
+      if (evento === "PASSWORD_RECOVERY") {
+        /* O leitor voltou da carta: mostrar a forja de chave nova */
+        mostrarNovaSenha();
+      }
       if (evento === "SIGNED_OUT") {
         /* apaga o nome: o menu de todas as paginas volta a "A Chave" */
         try { localStorage.removeItem("maguezi.nome"); } catch (e) {}
@@ -242,6 +339,7 @@
       tabCriar.classList.remove("activo");
       formEntrar.classList.remove("escondido");
       formCriar.classList.add("escondido");
+      sairModoRecuperacao();
       limparErro();
     });
     tabCriar.addEventListener("click", function () {
@@ -249,14 +347,66 @@
       tabEntrar.classList.remove("activo");
       formCriar.classList.remove("escondido");
       formEntrar.classList.add("escondido");
+      sairModoRecuperacao();
       limparErro();
     });
 
-    /* ---------- entrar ---------- */
+    /* ---------- perdi a minha chave ---------- */
+    var linkPerdi    = document.getElementById("perdi-chave");
+    var botaoEntrar  = document.getElementById("botao-entrar");
+    var campoSenha   = document.getElementById("campo-entrar-senha");
+
+    function entrarModoRecuperacao() {
+      modoRecuperacao = true;
+      campoSenha.style.display = "none";
+      botaoEntrar.textContent = "Enviar a carta";
+      linkPerdi.textContent = "Lembrei-me da chave — voltar";
+      limparErro();
+      limparInfo();
+    }
+    function sairModoRecuperacao() {
+      if (!modoRecuperacao) { return; }
+      modoRecuperacao = false;
+      campoSenha.style.display = "";
+      botaoEntrar.textContent = "Abrir a porta";
+      linkPerdi.textContent = "Perdi a minha chave";
+      limparErro();
+      limparInfo();
+    }
+
+    linkPerdi.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (modoRecuperacao) { sairModoRecuperacao(); }
+      else { entrarModoRecuperacao(); }
+    });
+
+    /* ---------- entrar (ou pedir a carta) ---------- */
     formEntrar.addEventListener("submit", function (e) {
       e.preventDefault();
       limparErro();
+      limparInfo();
       var email = document.getElementById("entrar-email").value.trim();
+
+      /* Modo carta: pedir o caminho de nova senha */
+      if (modoRecuperacao) {
+        if (!email) { erro("Escreve o teu email — é para lá que a carta sai."); return; }
+        botaoEntrar.disabled = true;
+        botaoEntrar.textContent = "A selar a carta…";
+        cliente.auth.resetPasswordForEmail(email, {
+          redirectTo: "https://cronicasdamaguezi.co.mz/entrar.html"
+        }).then(function (res) {
+          botaoEntrar.disabled = false;
+          botaoEntrar.textContent = "Enviar outra vez";
+          if (res.error) { erro(traduzirErro(res.error)); return; }
+          informar("Se este email tiver chave nossa, a carta acaba de sair. Procura-a — e espreita o spam, que as cartas da cidade gostam de se esconder lá. O caminho lá dentro vale uma hora.");
+        }).catch(function (e2) {
+          botaoEntrar.disabled = false;
+          botaoEntrar.textContent = "Enviar a carta";
+          erro(traduzirErro(e2));
+        });
+        return;
+      }
+
       var senha = document.getElementById("entrar-senha").value;
       cliente.auth.signInWithPassword({ email: email, password: senha })
         .then(function (res) {
@@ -271,6 +421,7 @@
     formCriar.addEventListener("submit", function (e) {
       e.preventDefault();
       limparErro();
+      limparInfo();
       var nome  = document.getElementById("criar-nome").value.trim();
       var email = document.getElementById("criar-email").value.trim();
       var senha = document.getElementById("criar-senha").value;
@@ -281,8 +432,41 @@
         options: { data: { nome: nome } }
       }).then(function (res) {
         if (res.error) { erro(traduzirErro(res.error)); return; }
+        if (!(res.data && res.data.session)) {
+          /* "Confirm email" ligado: a chave espera confirmação por carta */
+          informar("A chave está quase tua. Abre a carta que acaba de sair para o teu email, confirma o endereço, e volta para abrir a porta.");
+          formCriar.reset();
+          return;
+        }
         mostrarLogado(nome);
       }).catch(function (e2) { erro(traduzirErro(e2)); });
+    });
+
+    /* ---------- nova senha (voltando da carta) ---------- */
+    document.getElementById("form-nova-senha").addEventListener("submit", function (e) {
+      e.preventDefault();
+      limparErroNova();
+      var s1 = document.getElementById("nova-senha").value;
+      var s2 = document.getElementById("nova-senha-confirma").value;
+      if (s1.length < 6) { erroNova("A senha precisa de pelo menos 6 caracteres."); return; }
+      if (s1 !== s2) { erroNova("As duas chaves não saíram iguais — repete o fecho."); return; }
+      var botaoNova = document.getElementById("botao-nova-senha");
+      botaoNova.disabled = true;
+      botaoNova.textContent = "A forjar…";
+      cliente.auth.updateUser({ password: s1 }).then(function (res) {
+        botaoNova.disabled = false;
+        botaoNova.textContent = "Forjar a chave nova";
+        if (res.error) { erroNova(traduzirErro(res.error)); return; }
+        var u = res.data && res.data.user;
+        var nome = (u && u.user_metadata && u.user_metadata.nome) || "leitor";
+        mostrarLogado(nome);
+        document.getElementById("saudacao").textContent =
+          "Chave nova forjada. A cidade reconheceu-te, " + nome + ".";
+      }).catch(function (e2) {
+        botaoNova.disabled = false;
+        botaoNova.textContent = "Forjar a chave nova";
+        erroNova(traduzirErro(e2));
+      });
     });
 
     /* ---------- sair ---------- */
@@ -290,6 +474,9 @@
       cliente.auth.signOut();
       formEntrar.reset();
       formCriar.reset();
+      document.getElementById("form-nova-senha").reset();
+      sairModoRecuperacao();
+      limparInfo();
     });
 
     verificarSessao();
