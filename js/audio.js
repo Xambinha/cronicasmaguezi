@@ -148,7 +148,7 @@
           '<p class="pm-texto">Em breve, cada crónica poderá ser ouvida — narrada, ' +
           'à maneira antiga, como se conta junto à fogueira.</p>' +
           '<p class="pm-texto">Queres ser dos primeiros a ouvir? ' +
-          '<a href="mailto:associacaomaguezi@gmail.com">associacaomaguezi@gmail.com</a></p>' +
+          '<a href="mailto:cronicasmaguezi@gmail.com">cronicasmaguezi@gmail.com</a></p>' +
         '</div>' +
       '</div>';
   }

@@ -327,7 +327,7 @@ function Fichas($lista, $comLink) {
         <span class="simbolo">🎙️</span>
         <p><strong>As gravações estão a nascer.</strong></p>
         <p>Em breve, cada crónica poderá ser ouvida — narrada, à maneira antiga, como se conta junto à fogueira.</p>
-        <p>Queres ser dos primeiros a ouvir? <a href="mailto:associacaomaguezi@gmail.com">associacaomaguezi@gmail.com</a></p>
+        <p>Queres ser dos primeiros a ouvir? <a href="mailto:cronicasmaguezi@gmail.com">cronicasmaguezi@gmail.com</a></p>
       </div>
     </div>
   </section>
@@ -381,7 +381,7 @@ function Fichas($lista, $comLink) {
       <div class="redes">
         <a href="#">Facebook</a>
         <a href="#">YouTube</a>
-        <a href="mailto:associacaomaguezi@gmail.com">E-mail</a>
+        <a href="mailto:cronicasmaguezi@gmail.com">E-mail</a>
       </div>
       <p class="rodape-frase">@@FRASE-RODAPE@@</p>
     </div>
