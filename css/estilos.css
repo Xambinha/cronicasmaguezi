@@ -74,7 +74,7 @@ a { color: inherit; }
 }
 /* ===== O logo da cidade ===== */
 .marca-logo {
-  height: 3em;      /* ajusta a gosto: 2.2em discreto, 3em senhorial */
+  height: 2.6em;      /* ajusta a gosto: 2.2em discreto, 3em senhorial */
   width: auto;        /* mantém as proporções ~2:1 */
   display: block;     /* elimina o respiro fantasma por baixo da imagem */
 }

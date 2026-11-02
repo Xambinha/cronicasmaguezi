@@ -245,7 +245,7 @@ function Fichas($lista, $comLink) {
 
   <header class="cabecalho cabecalho--solido">
     <div class="conteudo">
-      <a class="marca" href="../index.html"><img class="marca-logo" src="../img/logoo.png" alt="Crónicas Maguezi" /></a>
+      <a class="marca" href="../index.html"><img class="marca-logo" src="../img/logo.png" alt="Crónicas Maguezi" /></a>
       <nav aria-label="Navegação principal">
         <ul class="menu">
           <li><a href="../universo/index.html">O Universo</a></li>
